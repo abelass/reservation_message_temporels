@@ -9,4 +9,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// R
 	'reservation_message_temporels_titre' => 'Réservation messages temporels',
+
+	// T
+	'reservation_message_temporel:reservation_message_temporel' => 'Message temporel pour Réservation',
 );
