@@ -2,7 +2,7 @@
 
 /**
  *  Fichier généré par la Fabrique de plugin v6
- *   le 2018-09-27 14:15:25
+ *   le 2018-09-27 14:47:15
  *
  *  Ce fichier de sauvegarde peut servir à recréer
  *  votre plugin avec le plugin «Fabrique» qui a servi à le créer.
@@ -142,14 +142,29 @@ $data = array (
             1 => 'versionne',
           ),
           'recherche' => '',
-          'saisie' => '',
+          'saisie' => 'reservation_rappels',
           'explication' => 'Ne será envoyé seulement après l\'envoi du rappel précédent',
           'saisie_options' => '',
         ),
         3 => 
         array (
-          'nom' => 'Déclencheur',
-          'champ' => 'declencheur',
+          'nom' => 'Fréquence cron',
+          'champ' => 'frequence_cron',
+          'sql' => 'int(11) NOT NULL DEFAULT 0',
+          'caracteristiques' => 
+          array (
+            0 => 'editable',
+            1 => 'versionne',
+          ),
+          'recherche' => '',
+          'saisie' => 'input',
+          'explication' => 'Fréquence en secondes avec la quelle le système vérifie s\'il faut envoyer un rappel. Défaut 86400 = 1 jour',
+          'saisie_options' => '',
+        ),
+        4 => 
+        array (
+          'nom' => 'Déclencheur Date',
+          'champ' => 'declencheur_date',
           'sql' => 'varchar(20) NOT NULL DEFAULT \'\'',
           'caracteristiques' => 
           array (
@@ -162,7 +177,22 @@ $data = array (
           'explication' => '',
           'saisie_options' => '',
         ),
-        4 => 
+        5 => 
+        array (
+          'nom' => 'Déclencheur statut',
+          'champ' => 'declencheur_statut',
+          'sql' => 'varchar(25) NOT NULL DEFAULT \'\'',
+          'caracteristiques' => 
+          array (
+            0 => 'editable',
+            1 => 'versionne',
+          ),
+          'recherche' => '',
+          'saisie' => 'selection',
+          'explication' => '',
+          'saisie_options' => '',
+        ),
+        6 => 
         array (
           'nom' => 'Date déclenchement',
           'champ' => 'date_declenchement',
@@ -177,7 +207,7 @@ $data = array (
           'explication' => '',
           'saisie_options' => '',
         ),
-        5 => 
+        7 => 
         array (
           'nom' => 'Nombre de jours',
           'champ' => 'nombre_jours',
@@ -188,23 +218,8 @@ $data = array (
             1 => 'versionne',
           ),
           'recherche' => '',
-          'saisie' => '',
+          'saisie' => 'input',
           'explication' => '',
-          'saisie_options' => '',
-        ),
-        6 => 
-        array (
-          'nom' => 'Fréquence cron',
-          'champ' => 'frequence_cron',
-          'sql' => 'int(11) NOT NULL DEFAULT 0',
-          'caracteristiques' => 
-          array (
-            0 => 'editable',
-            1 => 'versionne',
-          ),
-          'recherche' => '',
-          'saisie' => '',
-          'explication' => 'Fréquence en secondes avec la quelle le système vérifie s\'il faut envoyer un rappel. Défaut 86400 = 1 jour',
           'saisie_options' => '',
         ),
       ),

@@ -12,13 +12,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'ajouter_lien_reservation_rappel' => 'Ajouter ce rappel',
 
 	// C
-	'champ_date_declenchement_label' => 'Date déclenchement',
-	'champ_declencheur_label' => 'Déclencheur',
+	'champ_declencheur_date_label' => 'Un rappel est déclenché par rapport:',
+	'champ_declencheur_statut_label' => 'Déclencheur statut',
 	'champ_descriptif_label' => 'Déscriptif',
 	'champ_frequence_cron_explication' => 'Fréquence en secondes avec la quelle le système vérifie s\'il faut envoyer un rappel. Défaut 86400 = 1 jour',
 	'champ_frequence_cron_label' => 'Fréquence cron',
 	'champ_nombre_jours_label' => 'Nombre de jours',
-	'champ_rappel_precedent_explication' => 'Ne será envoyé seulement après l\'envoi du rappel précédent',
+	'champ_rappel_precedent_explication' => 'Ne sera envoyé seulement après l\'envoi du rappel précédent',
 	'champ_rappel_precedent_label' => 'Rappel précédent ',
 	'champ_titre_label' => 'Titre',
 	'confirmer_supprimer_reservation_rappel' => 'Confirmez-vous la suppression de ce rappel ?',
@@ -30,6 +30,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_aucun_reservation_rappel' => 'Aucun rappel',
 	'info_nb_reservation_rappels' => '@nb@ rappels',
 	'info_reservation_rappels_auteur' => 'Les rappels de cet auteur',
+	'item_date_debut_evenement' => 'à la date de début de l\'évenment',
+	'item_date_reservation' => 'à la date de début de réservation',
 
 	// R
 	'retirer_lien_reservation_rappel' => 'Retirer ce rappel',
