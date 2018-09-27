@@ -1,0 +1,29 @@
+<div class='formulaire_spip formulaire_editer formulaire_#FORM formulaire_#FORM-#ENV{id_reservation_rappel,nouveau}'>
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV**{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+	[(#ENV{editable})
+	<form method="post" action="#ENV{action}"><div>
+		#ACTION_FORMULAIRE{#ENV{action}}
+		<input type="hidden" name="id_reservation_rappel" value="#ENV{id_reservation_rappel}" />
+		<div class="editer-groupe">
+
+			[(#SAISIE{input, titre, obligatoire=oui,
+				label=<:reservation_rappel:champ_titre_label:>})]
+
+			[(#SAISIE{textarea, descriptif,
+				label=<:reservation_rappel:champ_descriptif_label:>})]
+
+			[(#SAISIE{selection, declencheur, obligatoire=oui,
+				label=<:reservation_rappel:champ_declencheur_label:>})]
+
+			[(#SAISIE{date, date_declenchement,
+				label=<:reservation_rappel:champ_date_declenchement_label:>})]
+
+		</div>
+		[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
+		<!--extra-->
+		<p class="boutons"><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
+	</div></form>
+	]
+</div>

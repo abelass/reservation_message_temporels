@@ -1,0 +1,20 @@
+<BOUCLE_test_multiple(CONDITION){si #ENV{multiple}|=={on}|oui}>
+	[(#SET{valeur,[(#ENV*{valeur}|is_array|?{[(#ENV*{valeur})],[(#ENV*{valeur}|explode{','})]})]})]
+	<B_reservation_rappels_selectionnes>
+	<ul>
+	<BOUCLE_reservation_rappels_selectionnes(RESERVATION_RAPPELS){id_reservation_rappel IN #GET*{valeur}}
+		{par num titre, titre}{statut?}{tout}>
+		<li class="choix">#TITRE (#ID_RESERVATION_RAPPEL)</li>
+	</BOUCLE_reservation_rappels_selectionnes>
+	</ul>
+	</B_reservation_rappels_selectionnes>
+   	[(#ENV*{sans_reponse}|propre)]
+	<//B_reservation_rappels_selectionnes>
+</BOUCLE_test_multiple>
+	<BOUCLE_reservation_rappel_selectionne(RESERVATION_RAPPELS){id_reservation_rappel=#ENV{valeur}}
+		{par num titre, titre}{statut?}{tout}>
+	  	<p>#TITRE (#ID_RESERVATION_RAPPEL)</p>
+	</BOUCLE_reservation_rappel_selectionne>
+   	[(#ENV*{sans_reponse}|propre)]
+	<//B_reservation_rappel_selectionne>
+<//B_test_multiple>

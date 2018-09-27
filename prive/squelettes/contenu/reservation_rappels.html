@@ -1,0 +1,8 @@
+#FORMULAIRE_RECHERCHE_ECRIRE{#SELF,ajax}
+<div class="nettoyeur"></div>
+
+<INCLURE{fond=prive/objets/liste/reservation_rappels, env, ajax, sinon=<:reservation_rappel:info_aucun_reservation_rappel:>}>
+
+[(#AUTORISER{creer,reservation_rappel})
+	[(#URL_ECRIRE{reservation_rappel_edit,new=oui}|icone_verticale{<:reservation_rappel:icone_creer_reservation_rappel:>,reservation_rappel,new,right})]
+]

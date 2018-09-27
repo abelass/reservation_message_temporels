@@ -1,0 +1,36 @@
+[(#ID_RESERVATION_RAPPEL|oui)
+	[(#AUTORISER{modifier,reservation_rappel,#ID_RESERVATION_RAPPEL}|sinon_interdire_acces)]
+	[(#SET{id_parent,#INFO_{reservation_rappel,#ID_RESERVATION_RAPPEL}})]
+]
+
+
+[(#ID_RESERVATION_RAPPEL|non)
+	[(#AUTORISER{creer,reservation_rappel}|sinon_interdire_acces)]
+]
+
+#SET{redirect,#ENV{redirect}|sinon{#ID_RESERVATION_RAPPEL|?{#ID_RESERVATION_RAPPEL|generer_url_entite{reservation_rappel},#URL_ECRIRE{reservation_rappels}}}}
+
+
+
+<div class="cadre-formulaire-editer">
+<div class="entete-formulaire">
+	[(#ID_RESERVATION_RAPPEL|oui)
+	[(#GET{redirect}|icone_verticale{<:icone_retour:>,reservation_rappel,'',left retour[(#ENV{retourajax,''}|oui)ajax preload]})]
+	]
+	[
+		[(#ID_RESERVATION_RAPPEL|?{<:reservation_rappel:icone_modifier_reservation_rappel:>,<:reservation_rappel:icone_creer_reservation_rappel:>})]
+		<h1>(#ENV{titre,#INFO_TITRE{reservation_rappel,#ID_RESERVATION_RAPPEL}|sinon{<:info_sans_titre:>}})</h1>
+	]
+</div>
+
+#SET{redirect,#ENV{redirect,#ID_RESERVATION_RAPPEL|generer_url_entite{reservation_rappel}}}
+[(#ENV{retourajax,''}|oui)
+	#SET{redirect,'javascript:if (window.jQuery) jQuery(".entete-formulaire .retour a").followLink();'}
+	<div class="ajax">
+]
+		[(#FORMULAIRE_EDITER_RESERVATION_RAPPEL{#ENV{id_reservation_rappel,oui}, #GET{redirect}, #ENV{associer_objet}})]
+[(#ENV{retourajax,''}|oui)
+	</div>
+	<script type="text/javascript">/*<!\[CDATA\[*/reloadExecPage('#ENV{exec}');/*\]\]>*/</script>
+]
+</div>

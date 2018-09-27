@@ -1,0 +1,68 @@
+[(#AUTORISER{voir,reservation_rappel,#ID_RESERVATION_RAPPEL}|sinon_interdire_acces)]
+[(#SET{url_voir,#VAL{reservation_rappel}|objet_info{url_voir}})]
+[(#SET{url_edit,#VAL{reservation_rappel}|objet_info{url_edit}})]
+<BOUCLE_reservation_rappel(RESERVATION_RAPPELS){id_reservation_rappel}{statut==.*}{si #ENV{exec}|=={#GET{url_voir}}}>
+[(#BOITE_OUVRIR{[
+	[(#AUTORISER{modifier,reservation_rappel,#ID_RESERVATION_RAPPEL})
+		[(#ID_RESERVATION_RAPPEL|afficher_qui_edite{reservation_rappel}|non)
+			[(#URL_ECRIRE{#GET{url_edit},id_reservation_rappel=#ID_RESERVATION_RAPPEL}|icone_verticale{<:reservation_rappel:icone_modifier_reservation_rappel:>,reservation_rappel,edit,right ajax preload})]
+		]
+		[(#ID_RESERVATION_RAPPEL|afficher_qui_edite{reservation_rappel}|oui)
+			[(#URL_ECRIRE{#GET{url_edit},id_reservation_rappel=#ID_RESERVATION_RAPPEL}|icone_verticale{#ID_RESERVATION_RAPPEL|afficher_qui_edite{reservation_rappel},warning-24,'',right edition_deja ajax preload})]
+		]
+	]
+
+	<h1>[(#RANG). ](#TITRE|sinon{<:info_sans_titre:>})[(#CHEMIN_IMAGE{reservation_rappel-24.png}|balise_img{reservation_rappel,cadre-icone})]</h1>
+
+],simple fiche_objet})]
+
+<div class="ajax">
+	#FORMULAIRE_DATER{reservation_rappel,#ID_RESERVATION_RAPPEL}
+</div>
+
+<!--affiche_milieu-->
+
+<div id="wysiwyg">
+<INCLURE{fond=prive/objets/contenu/reservation_rappel,id=#ID_RESERVATION_RAPPEL,id_reservation_rappel=#ID_RESERVATION_RAPPEL,virtuel=oui,ajax=wysiwyg,wysiwyg=1}>
+</div>
+
+<div class="nettoyeur"></div>
+
+[(#AUTORISER{modifier,reservation_rappel,#ID_RESERVATION_RAPPEL})
+	[(#ID_RESERVATION_RAPPEL|afficher_qui_edite{reservation_rappel}|non)
+		[(#URL_ECRIRE{#GET{url_edit},id_reservation_rappel=#ID_RESERVATION_RAPPEL}|icone_verticale{<:reservation_rappel:icone_modifier_reservation_rappel:>,reservation_rappel,edit,right ajax preload})]
+	]
+	[(#ID_RESERVATION_RAPPEL|afficher_qui_edite{reservation_rappel}|oui)
+		[(#URL_ECRIRE{#GET{url_edit},id_reservation_rappel=#ID_RESERVATION_RAPPEL}|icone_verticale{#ID_RESERVATION_RAPPEL|afficher_qui_edite{reservation_rappel},warning-24,'',right edition_deja ajax preload})]
+	]
+]
+
+<div class="nettoyeur"></div>
+<div class="liste">
+	<BOUCLE_objetslies(spip_reservation_rappels_liens){id_reservation_rappel}{0,1}><h3><:reservation_rappel:titre_objets_lies_reservation_rappel:></h3></BOUCLE_objetslies>
+
+	<BOUCLE_listeobjets(spip_reservation_rappels_liens){id_reservation_rappel}{fusion objet}{par objet}>
+		#SET{table,#OBJET|table_objet}
+		[(#SET{titre,[#OBJET:info_(#GET{table})_liees_reservation_rappel]})]
+		[(#SET{liste,#VAL{prive/objets/liste/#GET{table}}|trouver_fond|?{#GET{table},objets_lies_reservation_rappel}})]
+		<INCLURE{fond=prive/objets/liste/#GET{liste},objet,id_reservation_rappel,ajax,env} />
+	</BOUCLE_listeobjets>
+</div>
+
+#PIPELINE{afficher_complement_objet,#ARRAY{args,#ARRAY{type,reservation_rappel,id,#ID_RESERVATION_RAPPEL},data,'<div class="nettoyeur"></div>'}}
+
+#BOITE_FERMER
+
+
+#SET{enfants,''}
+[(#VAL{prive/objets/contenu/reservation_rappel-enfants}|trouver_fond|oui)
+	[(#SET{enfants,[(#INCLURE{fond=prive/objets/contenu/reservation_rappel-enfants,id_reservation_rappel,env})]})]
+]
+[(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,reservation_rappel,id_reservation_rappel,#ID_RESERVATION_RAPPEL,objet,reservation_rappel,id_objet,#ID_RESERVATION_RAPPEL},data,#GET{enfants}})]})]
+
+[(#EVAL{_AJAX}|oui)
+	<script type="text/javascript">/*<!\\[CDATA\\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin,#extra');/*\\]\\]>*/</script>
+]
+</BOUCLE_reservation_rappel>
+[(#ENV**{exec}|=={#GET{url_edit}}|?{#INCLURE{fond=prive/squelettes/contenu/#GET{url_edit},redirect='',env,retourajax=oui},#REM|sinon_interdire_acces})]
+<//B_reservation_rappel>

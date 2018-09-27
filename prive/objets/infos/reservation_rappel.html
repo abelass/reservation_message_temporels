@@ -1,0 +1,30 @@
+<BOUCLE_reservation_rappel(RESERVATION_RAPPELS){id_reservation_rappel=#ENV{id}}{statut?}>
+<div class="infos">
+[(#SET{texte_objet,<:reservation_rappel:titre_reservation_rappel:>})]
+<div class="numero"><:titre_cadre_numero_objet{objet=#GET{texte_objet}}:><p>#ID_RESERVATION_RAPPEL</p></div>
+
+[(#FORMULAIRE_INSTITUER_OBJET{reservation_rappels,#ID_RESERVATION_RAPPEL})]
+
+<div class='nb_elements'><!--nb_elements--></div>
+
+[(#REM)
+
+	Bouton voir en ligne
+
+]
+<BOUCLE_publie(RESERVATION_RAPPELS){id_reservation_rappel}>
+	[(#VAL{redirect}
+		|generer_url_action{type=reservation_rappels&id=#ID_RESERVATION_RAPPEL}
+		|parametre_url{var_mode,calcul}
+		|icone_horizontale{<:icone_voir_en_ligne:>,racine})]
+</BOUCLE_publie>
+	[(#AUTORISER{previsualiser,reservation_rappels,#ID_RESERVATION_RAPPEL,'',#ARRAY{statut,#STATUT}})
+		[(#VAL{redirect}
+			|generer_url_action{type=reservation_rappels&id=#ID_RESERVATION_RAPPEL}
+			|parametre_url{var_mode,preview}
+			|icone_horizontale{<:previsualiser:>,preview})]
+	]
+<//B_publie>
+
+</div>
+</BOUCLE_reservation_rappel>
