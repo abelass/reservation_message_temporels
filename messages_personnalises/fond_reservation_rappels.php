@@ -16,7 +16,7 @@
  *        	Variables du contexte.
  * @return array Définition.
  */
-function messages_personnalises_cron_reservation_message_temporel_dist($args) {
+function messages_personnalises_fond_reservation_rappels_dist($args) {
 
 	// Les champs reservations
 	$reservations = lister_tables_objets_sql('spip_reservations');
