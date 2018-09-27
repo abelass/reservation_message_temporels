@@ -15,6 +15,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'champ_date_declenchement_label' => 'Date déclenchement',
 	'champ_declencheur_label' => 'Déclencheur',
 	'champ_descriptif_label' => 'Déscriptif',
+	'champ_frequence_cron_explication' => 'Fréquence en secondes avec la quelle le système vérifie s\'il faut envoyer un rappel. Défaut 86400 = 1 jour',
+	'champ_frequence_cron_label' => 'Fréquence cron',
 	'champ_nombre_jours_label' => 'Nombre de jours',
 	'champ_rappel_precedent_explication' => 'Ne será envoyé seulement après l\'envoi du rappel précédent',
 	'champ_rappel_precedent_label' => 'Rappel précédent ',

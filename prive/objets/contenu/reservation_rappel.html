@@ -29,4 +29,9 @@
 	<span dir="#LANG_DIR" class="#EDIT{nombre_jours} nombre_jours">(#NOMBRE_JOURS)</span>
 </div>]
 
+[<div class="champ contenu_frequence_cron[ (#FREQUENCE_CRON*|strlen|?{'',vide})]">
+	<label><:reservation_rappel:champ_frequence_cron_label:> : </label>
+	<span dir="#LANG_DIR" class="#EDIT{frequence_cron} frequence_cron">(#FREQUENCE_CRON)</span>
+</div>]
+
 </BOUCLE_reservation_rappel>

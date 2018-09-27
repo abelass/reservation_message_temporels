@@ -54,6 +54,7 @@ function reservation_rappels_declarer_tables_objets_sql($tables) {
 			'declencheur'        => 'varchar(20) NOT NULL DEFAULT ""',
 			'date_declenchement' => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"',
 			'nombre_jours'       => 'int(11) NOT NULL DEFAULT 0',
+			'frequence_cron'     => 'int(11) NOT NULL DEFAULT 0',
 			'date'               => 'datetime NOT NULL DEFAULT "0000-00-00 00:00:00"',
 			'statut'             => 'varchar(20)  DEFAULT "0" NOT NULL',
 			'maj'                => 'TIMESTAMP'
@@ -64,8 +65,8 @@ function reservation_rappels_declarer_tables_objets_sql($tables) {
 		),
 		'titre' => 'titre AS titre, "" AS lang',
 		'date' => 'date',
-		'champs_editables'  => array('titre', 'descriptif', 'rappel_precedent', 'declencheur', 'date_declenchement', 'nombre_jours'),
-		'champs_versionnes' => array('titre', 'descriptif', 'rappel_precedent', 'declencheur', 'date_declenchement', 'nombre_jours'),
+		'champs_editables'  => array('titre', 'descriptif', 'rappel_precedent', 'declencheur', 'date_declenchement', 'nombre_jours', 'frequence_cron'),
+		'champs_versionnes' => array('titre', 'descriptif', 'rappel_precedent', 'declencheur', 'date_declenchement', 'nombre_jours', 'frequence_cron'),
 		'rechercher_champs' => array("titre" => 8, "descriptif" => 5, "declencheur" => 5),
 		'tables_jointures'  => array('spip_reservation_rappels_liens'),
 		'statut_textes_instituer' => array(
