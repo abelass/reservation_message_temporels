@@ -4,7 +4,13 @@
 <select name="#ENV{nom}[(#ENV{multiple}|?{\[\]})]" id="champ_[(#ENV{nom}|saisie_nom2classe)]"[ class="(#ENV{class})"][(#ENV{multiple}|oui) multiple="multiple" size="#ENV{size,10}"][ disabled="(#ENV{disable})"]>
 	[(#ENV{cacher_option_intro}|ou{#ENV{multiple}}|non)
 		<option value="">[(#ENV{option_intro})]</option>]
-	<BOUCLE_reservation_rappels(RESERVATION_RAPPELS){id_reservation_rappel?}{statut?}{recherche?}{tout}{par num titre, titre}>
+	<BOUCLE_reservation_rappels(RESERVATION_RAPPELS)
+		{id_reservation_rappel?}
+		{id_reservation_rappel !IN #ENV{exclus,0}}
+		{statut?}
+		{recherche?}
+		{tout}
+		{par num titre, titre}{exclus}>
 		[(#ENV{multiple}|oui)
 		<option value="#ID_RESERVATION_RAPPEL"[(#ID_RESERVATION_RAPPEL|in_array{#ENV{valeur_forcee,#GET{valeur,#ENV{defaut,#ARRAY}}}}|oui) selected="selected"]>#TITRE</option>]
 		[(#ENV{multiple}|non)

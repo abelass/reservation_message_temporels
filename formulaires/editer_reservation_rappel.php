@@ -169,6 +169,7 @@ function formulaires_editer_reservation_rappel_saisies_dist() {
 						'nom' => 'rappel_precedent',
 						'label' => _T('reservation_rappel:champ_rappel_precedent_label'),
 						'explication' => _T('reservation_rappel:champ_rappel_precedent_explication'),
+						'exclus' => _request('id_reservation_rappel'),
 					],
 				],
 				[
