@@ -14,13 +14,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'champ_declencheur_date_label' => 'Un rappel est déclenché par rapport:',
 	'champ_declencheur_statut_label' => 'Déclencheur statut',
-	'champ_descriptif_label' => 'Déscriptif',
-	'champ_frequence_cron_explication' => 'Fréquence en secondes avec la quelle le système vérifie s\'il faut envoyer un rappel. Défaut 86400 = 1 jour',
-	'champ_frequence_cron_label' => 'Fréquence cron',
 	'champ_nombre_jours_label' => 'Nombre de jours',
 	'champ_rappel_precedent_explication' => 'Ne sera envoyé seulement après l\'envoi du rappel précédent',
 	'champ_rappel_precedent_label' => 'Rappel précédent ',
-	'champ_titre_label' => 'Titre',
 	'confirmer_supprimer_reservation_rappel' => 'Confirmez-vous la suppression de ce rappel ?',
 
 	// I

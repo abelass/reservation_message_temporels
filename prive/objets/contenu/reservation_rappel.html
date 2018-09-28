@@ -1,11 +1,11 @@
 <BOUCLE_reservation_rappel(RESERVATION_RAPPELS){id_reservation_rappel}{statut?}>
 [<div class="champ contenu_titre[ (#TITRE*|strlen|?{'',vide})]">
-	<label><:reservation_rappel:champ_titre_label:> : </label>
+	<label><:info_titre:> : </label>
 	<span dir="#LANG_DIR" class="#EDIT{titre} titre">(#TITRE)</span>
 </div>]
 
 [<div class="champ contenu_descriptif[ (#DESCRIPTIF*|strlen|?{'',vide})]">
-	<label><:reservation_rappel:champ_descriptif_label:> : </label>
+	<label><:info_descriptif:> : </label>
 	<span dir="#LANG_DIR" class="#EDIT{descriptif} descriptif">(#DESCRIPTIF)</span>
 </div>]
 
@@ -14,29 +14,19 @@
 	<span dir="#LANG_DIR" class="#EDIT{rappel_precedent} rappel_precedent">(#RAPPEL_PRECEDENT)</span>
 </div>]
 
-[<div class="champ contenu_frequence_cron[ (#FREQUENCE_CRON*|strlen|?{'',vide})]">
-	<label><:reservation_rappel:champ_frequence_cron_label:> : </label>
-	<span dir="#LANG_DIR" class="#EDIT{frequence_cron} frequence_cron">(#FREQUENCE_CRON)</span>
-</div>]
-
 [<div class="champ contenu_declencheur_date[ (#DECLENCHEUR_DATE*|strlen|?{'',vide})]">
 	<label><:reservation_rappel:champ_declencheur_date_label:> : </label>
 	<span dir="#LANG_DIR" class="#EDIT{declencheur_date} declencheur_date">(#DECLENCHEUR_DATE)</span>
 </div>]
+
 
 [<div class="champ contenu_declencheur_statut[ (#DECLENCHEUR_STATUT*|strlen|?{'',vide})]">
 	<label><:reservation_rappel:champ_declencheur_statut_label:> : </label>
 	<span dir="#LANG_DIR" class="#EDIT{declencheur_statut} declencheur_statut">(#DECLENCHEUR_STATUT)</span>
 </div>]
 
-[<div class="champ contenu_date_declenchement[ (#DATE_DECLENCHEMENT*|!={0000-00-00 00:00:00}|?{'',vide})]">
-	<label><:reservation_rappel:champ_date_declenchement_label:> : </label>
-	<span dir="#LANG_DIR" class="#EDIT{date_declenchement} date_declenchement">(#DATE_DECLENCHEMENT|=={0000-00-00 00:00:00}|?{'',[(#DATE_DECLENCHEMENT|affdate)]})</span>
-</div>]
-
-[<div class="champ contenu_nombre_jours[ (#NOMBRE_JOURS*|strlen|?{'',vide})]">
+[<div class="champ contenu_nombre_jour[ (#NOMBRE_JOURS*|strlen|?{'',vide})]">
 	<label><:reservation_rappel:champ_nombre_jours_label:> : </label>
-	<span dir="#LANG_DIR" class="#EDIT{nombre_jours} nombre_jours">(#NOMBRE_JOURS)</span>
+	<span dir="#LANG_DIR" class="#EDIT{nombre_jour} nombre_jour">(#NOMBRE_JOURS)</span>
 </div>]
-
 </BOUCLE_reservation_rappel>
