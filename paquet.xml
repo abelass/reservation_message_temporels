@@ -1,7 +1,7 @@
 <paquet
 	prefix="reservation_rappels"
 	categorie="communication"
-	version="1.01"
+	version="1.0.1"
 	etat="dev"
 	compatibilite="[3.0.0;3.2.*]"
 	logo="prive/themes/spip/images/reservation_rappels-64.png"

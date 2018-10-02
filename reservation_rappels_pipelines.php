@@ -78,3 +78,14 @@ function reservation_rappels_optimiser_base_disparus($flux) {
 
 	return $flux;
 }
+
+/**
+ * Déclarer des fonctions exécutées de manière périodique par SPIP
+ *
+ * @param array $taches
+ * @return array
+ */
+function reservation_rappels_taches_generales_cron($taches){
+	$taches['reservation_envoi_rappels'] = RESERVATION_RAPPELS_CRON;
+	return $taches;
+}
