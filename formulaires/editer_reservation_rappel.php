@@ -54,15 +54,6 @@ function formulaires_editer_reservation_rappel_saisies_dist() {
 					],
 				],
 				[
-					'saisie' => 'reservation_rappels',
-					'options' => [
-						'nom' => 'rappel_precedent',
-						'label' => _T('reservation_rappel:champ_rappel_precedent_label'),
-						'explication' => _T('reservation_rappel:champ_rappel_precedent_explication'),
-						'exclus' => _request('id_reservation_rappel'),
-					],
-				],
-				[
 					'saisie' => 'selection',
 					'options' => [
 						'nom' => 'declencheur_statut',

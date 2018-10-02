@@ -50,7 +50,6 @@ function reservation_rappels_declarer_tables_objets_sql($tables) {
 			'id_reservation_rappel' => 'bigint(21) NOT NULL',
 			'titre'              => 'varchar(255) NOT NULL DEFAULT ""',
 			'descriptif'         => 'text NOT NULL DEFAULT ""',
-			'rappel_precedent'   => 'varchar(50) NOT NULL DEFAULT ""',
 			'declencheur_date'   => 'varchar(20) NOT NULL DEFAULT ""',
 			'declencheur_statut' => 'varchar(25) NOT NULL DEFAULT ""',
 			'nombre_jours'       => 'int(11) NOT NULL DEFAULT 0',
@@ -64,8 +63,8 @@ function reservation_rappels_declarer_tables_objets_sql($tables) {
 		),
 		'titre' => 'titre AS titre, "" AS lang',
 		'date' => 'date',
-		'champs_editables'  => array('titre', 'descriptif', 'rappel_precedent', 'declencheur_date', 'declencheur_statut', 'nombre_jours'),
-		'champs_versionnes' => array('titre', 'descriptif', 'rappel_precedent', 'declencheur_date', 'declencheur_statut', 'nombre_jours'),
+		'champs_editables'  => array('titre', 'descriptif', 'declencheur_date', 'declencheur_statut', 'nombre_jours'),
+		'champs_versionnes' => array('titre', 'descriptif', 'declencheur_date', 'declencheur_statut', 'nombre_jours'),
 		'rechercher_champs' => array("titre" => 8, "descriptif" => 5, "declencheur_date" => 5),
 		'tables_jointures'  => array('spip_reservation_rappels_liens'),
 		'statut_textes_instituer' => array(

@@ -1,12 +1,12 @@
 <paquet
 	prefix="reservation_rappels"
 	categorie="communication"
-	version="1.0.1"
+	version="1.0.2"
 	etat="dev"
 	compatibilite="[3.0.0;3.2.*]"
 	logo="prive/themes/spip/images/reservation_rappels-64.png"
 	documentation="https://github.com/abelass/reservation_rappels"
-	schema="1.0.1"
+	schema="1.0.2"
 >
 	<!--
 		Paquet généré le 2018-09-27 14:47:15
@@ -42,6 +42,7 @@
 
 	<necessite nom="saisies" compatibilite="[2.4.0;]" />
 	<necessite nom="verifier" compatibilite="[1.0.6;]" />
+	<necessite nom="reservation_evenement" compatibilite="[1.29.4;]" />
 
 	<pipeline nom="autoriser" inclure="reservation_rappels_autorisations.php" />
 
@@ -50,6 +51,7 @@
 	<pipeline nom="declarer_tables_auxiliaires" inclure="base/reservation_rappels.php" />
 	<pipeline nom="affiche_milieu" inclure="reservation_rappels_pipelines.php" />
 	<pipeline nom="optimiser_base_disparus" inclure="reservation_rappels_pipelines.php" />
+	<pipeline nom="taches_generales_cron" inclure="reservation_rappels_pipelines.php" />
 
 	<menu nom="reservation_rappels" titre="reservation_rappel:titre_reservation_rappels" parent="menu_edition" icone="images/reservation_rappel-16.png" action="reservation_rappels" />
 </paquet>
