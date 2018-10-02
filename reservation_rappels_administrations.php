@@ -51,8 +51,10 @@ function reservation_rappels_upgrade($nom_meta_base_version, $version_cible) {
 	# );
 	# ...
 
-	$maj['create'] = array(array('maj_tables', array('spip_reservation_rappels', 'spip_reservation_rappels_liens')));
-	$maj['1.0.1'] = array(array('maj_tables', array('spip_reservation_rappels')));
+	$maj['create'] = array(
+		array('maj_tables', array('spip_reservation_rappels', 'spip_reservation_rappels_liens')),
+		array('configurer_rang'),
+	);
 
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
@@ -90,4 +92,17 @@ function reservation_rappels_vider_tables($nom_meta_base_version) {
 	sql_delete('spip_forum', sql_in('objet', array('reservation_rappel')));
 
 	effacer_meta($nom_meta_base_version);
+}
+
+
+function configurer_rang() {
+	include_spip('inc/config');
+	$cfg = lire_config('rang', array());
+	$rang_objets = isset($cfg['rang_objets']) ? explode(',', $cfg['rang_objets']) : array();
+
+	if (!in_array('spip_reservation_rappels', $rang_objets))  {
+		$rang_objets[] = 'spip_reservation_rappels';
+	}
+	$cfg['rang_objets'] = implode(',',$rang_objets);
+	ecrire_config("rang", $cfg);
 }

@@ -1,12 +1,12 @@
 <paquet
 	prefix="reservation_rappels"
 	categorie="communication"
-	version="1.0.2"
+	version="1.01"
 	etat="dev"
 	compatibilite="[3.0.0;3.2.*]"
 	logo="prive/themes/spip/images/reservation_rappels-64.png"
 	documentation="https://github.com/abelass/reservation_rappels"
-	schema="1.0.2"
+	schema="1.0.1"
 >
 	<!--
 		Paquet généré le 2018-09-27 14:47:15
@@ -43,6 +43,7 @@
 	<necessite nom="saisies" compatibilite="[2.4.0;]" />
 	<necessite nom="verifier" compatibilite="[1.0.6;]" />
 	<necessite nom="reservation_evenement" compatibilite="[1.29.4;]" />
+	<necessite nom="rang" compatibilite="[1.0.3;]" />
 
 	<pipeline nom="autoriser" inclure="reservation_rappels_autorisations.php" />
 
